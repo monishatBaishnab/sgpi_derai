@@ -1,0 +1,259 @@
+<div id="carouselExampleDark" class="carousel carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded">
+                <?php
+                if (mysqli_num_rows($result) > 0) :
+                    while ($sdata = mysqli_fetch_assoc($result)) :
+                ?>
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <div class="bg" style="background: url('upload/home-slider/<?php echo $sdata['image']; ?>'); background-position: center center; height: 100%; background-size: cover;"></div>
+                            <div class="carousel-caption d-none d-md-block rounded">
+                                <h3 class=""><?php echo $sdata['title']; ?></h3>
+                                <p><?php echo $sdata['details']; ?></p>
+                            </div>
+                        </div>
+                    <?php
+                    endwhile;
+                else :
+                    ?>
+                    <div class="carousel-item active ci-1" data-bs-interval="10000">
+                        <div class="bg"></div>
+                        <div class="carousel-caption d-none d-md-block rounded">
+                            <h3 class="">সুরঞ্জিত সেনগুপ্ত পলিটেকনিক ইনস্টিটিউট</h3>
+                            <p>আমাথের শিক্ষার্থীদের নিজেদের, অন্যদের এবং আমাদের বিশ্ব সম্প্রদায়কে পরিবর্তন করার জন্য
+                                প্রয়োজনীয় দক্ষতা শেখাই।</p>
+                        </div>
+                    </div>
+                <?php
+                endif;
+                ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        <div class="row">
+            <div class="col">
+                <div class="d-flex align-items-center justify-content-start">
+                    <div class="px-4 py-2 custom-bg-primary">
+                        <h5 class="mb-0 text-white">খবর</h5>
+                    </div>
+                    <?php
+                    $mquery = "SELECT MAX(`id`) FROM `notice`";
+                    $max_id = mysqli_query($connection, $mquery);
+                    $max_id_s = mysqli_fetch_assoc($max_id);
+                    $id = $max_id_s['MAX(`id`)'];
+                    $nquery = "SELECT * FROM `notice` WHERE `id`=$id";
+                    $notice = mysqli_query($connection, $nquery);
+                    if (mysqli_num_rows($max_id) > 0) :
+                        $ndata = mysqli_fetch_assoc($notice);
+                    ?>
+                        <div class="border w-100 bg-white">
+                            <a target="_blank" href="upload/notice/<?php echo $ndata['notice'] ?>" class="custom-link custom-link-red d-inline-block"><?php echo $ndata['details']; ?></a>
+                        </div>
+                    <?php
+                    endif;
+                    ?>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        
+                        <!-- start books part  -->
+                        <h5 class="custom-success my-4">সকল বইয়ের তালিকা দেখে নিন।</h5>
+                        <div id="accordion" class="rounded border">
+
+                            <div class="">
+                                <div class="custom-bg-h border-bottom">
+                                    <a class="custom-link collapsed custom-color-1" data-bs-toggle="collapse"
+                                        href="#first">
+                                        ১ম সেমিস্টার বইয়ের তালিকা।
+                                    </a>
+                                </div>
+                                <div id="first" class="collapse" data-bs-parent="#accordion">
+                                    <div class="custom-bg">
+                                        <ul class="list-group-flush mb-0 py-2">
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i> Mathematics-1 (65911)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i> Computer application (66611)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i> Physics-1 (65912)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i> Electrical engineering fundamentals (66712)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i> English (65712)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i> Physical education & life skills developmen
+                                                (65812)
+                                            </li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i> Bangla (65711)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="custom-bg-h border-bottom">
+                                    <a class="collapsed custom-link custom-color-1" data-bs-toggle="collapse"
+                                        href="#second">
+                                        ২য় সেমিস্টার বইয়ের তালিকা।
+                                    </a>
+                                </div>
+                                <div id="second" class="collapse" data-bs-parent="#accordion">
+                                    <div class="custom-bg">
+                                        <ul class="list-group-flush mb-0 py-2">
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Database Application (66621)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Mathematics-2 (65921)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>IT support System-I (66622)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Physics-2 (65922)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Graphics Design-I (66623)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Communicative English (65722)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Analog Electronics (66823)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="custom-bg-h border-bottom">
+                                    <a class="collapsed custom-link custom-color-1" data-bs-toggle="collapse"
+                                        href="#third">
+                                        ৩য় সেমিস্টার বইয়ের তালিকা।
+                                    </a>
+                                </div>
+                                <div id="third" class="collapse" data-bs-parent="#accordion">
+                                    <div class="custom-bg">
+                                        <ul class="list-group-flush mb-0 py-2">
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Programming Essentials (66631)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Mathematics-3 (65931)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Web Design (66632)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Chemistry (65913)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Graphics design-II (66633)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Social Science (65811)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>IT support System-II (66634)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="custom-bg-h border-bottom">
+                                    <a class="collapsed custom-link custom-color-1" data-bs-toggle="collapse"
+                                        href="#fourth">
+                                        ৪র্থ সেমিস্টার বইয়ের তালিকা।
+                                    </a>
+                                </div>
+                                <div id="fourth" class="collapse" data-bs-parent="#accordion">
+                                    <div class="custom-bg">
+                                        <ul class="list-group-flush mb-0 py-2">
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Object-Oriented Programming (66641)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Web Development (66643)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Data Structure & Algorithm (66642)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Computer Peripherals (66645)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Data Communication System (66644)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Business Organization & Communication (65841)
+                                            </li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>The principle of Digital Electronics (66842)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="">
+                                <div class="custom-bg-h border-bottom">
+                                    <a class="collapsed custom-link custom-color-1" data-bs-toggle="collapse"
+                                        href="#fifth">
+                                        ৫ম সেমিস্টার বইয়ের তালিকা।
+                                    </a>
+                                </div>
+                                <div id="fifth" class="collapse" data-bs-parent="#accordion">
+                                    <div class="custom-bg">
+                                        <ul class="list-group-flush mb-0 py-2">
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Programming in Java (66651)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Surveillance Security System (66653)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Web Development Project (66654)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Operating Systems application (66652)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>PCB Design and Circuit Making (66656)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Accounting Theory & Practice (65851)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Sequential Logic System (66655)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="custom-bg-h border-bottom">
+                                    <a class="collapsed custom-link custom-color-1" data-bs-toggle="collapse"
+                                        href="#sixth">
+                                        ৬ষ্ঠ সেমিস্টার বইয়ের তালিকা।
+                                    </a>
+                                </div>
+                                <div id="sixth" class="collapse" data-bs-parent="#accordion">
+                                    <div class="custom-bg">
+                                        <ul class="list-group-flush mb-0 py-2">
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Principals of Software Engineering (66661)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Microcontroller Application (66663)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Microprocessor & Interfacing (66662)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Optional Subject (6666X)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Database Management System (66664)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Industrial Management (65852)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Environmental Studies (64054)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="">
+                                <div class="custom-bg-h border-bottom">
+                                    <a class="collapsed custom-link custom-color-1" data-bs-toggle="collapse"
+                                        href="#seventh">
+                                        ৭ম সেমিস্টার বইয়ের তালিকা।
+                                    </a>
+                                </div>
+                                <div id="seventh" class="collapse" data-bs-parent="#accordion">
+                                    <div class="custom-bg">
+                                        <ul class="list-group-flush mb-0 py-2">
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>System Analysis & Design (66671)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>E-Commerce & CMS (66674)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Network Administration & Services (66672)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Cyber Security & Ethics (66675)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Innovation & Entrepreneurship (65853)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Apps Development Project (66673)</li>
+                                            <li class="list-group-item"><i class="fa-solid fa-circle small custom-primary me-2"></i>Optional Subject-II (6667X)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- end books part  -->

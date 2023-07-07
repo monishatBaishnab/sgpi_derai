@@ -1,0 +1,22 @@
+[24-Dec-2022 09:31:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/sgpiderai/public_html/admin/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/sgpiderai/public_html/admin/index.php on line 5
+[24-Dec-2022 09:56:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/sgpiderai/public_html/admin/index.php:5
+Stack trace:
+#0 {main}
+  thrown in /home/sgpiderai/public_html/admin/index.php on line 5
+[24-Dec-2022 11:35:29 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/sgpiderai/public_html/admin/index.php on line 5
+[24-Dec-2022 11:35:29 UTC] PHP Fatal error:  Uncaught Exception: Cannot connection to database. in /home/sgpiderai/public_html/admin/index.php:7
+Stack trace:
+#0 {main}
+  thrown in /home/sgpiderai/public_html/admin/index.php on line 7
+[25-Dec-2022 17:35:35 UTC] PHP Warning:  Undefined variable $connection in /home/sgpiderai/public_html/sgpisuper_administration/inc/config.php on line 6
+[25-Dec-2022 17:35:35 UTC] PHP Fatal error:  Uncaught TypeError: mysqli_query(): Argument #1 ($mysql) must be of type mysqli, null given in /home/sgpiderai/public_html/sgpisuper_administration/inc/config.php:6
+Stack trace:
+#0 /home/sgpiderai/public_html/sgpisuper_administration/inc/config.php(6): mysqli_query(NULL, 'SET CHARACTER S...')
+#1 /home/sgpiderai/public_html/sgpisuper_administration/index.php(3): require('/home/sgpiderai...')
+#2 {main}
+  thrown in /home/sgpiderai/public_html/sgpisuper_administration/inc/config.php on line 6
+[14-Jan-2023 06:56:33 UTC] PHP Warning:  unlink(../upload/home-slider/bg (1).jpg): No such file or directory in /home/sgpiderai/public_html/sgpisuper_administration/inc/function.php on line 45
+[14-Jan-2023 06:56:42 UTC] PHP Warning:  unlink(../upload/home-slider/bg (1).jpg): No such file or directory in /home/sgpiderai/public_html/sgpisuper_administration/inc/function.php on line 45
